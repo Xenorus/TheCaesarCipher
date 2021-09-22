@@ -53,13 +53,13 @@ public class Main {
 
             //определяем используемый алфавит
             if (lang.equals("RU")) {
-                while (step>33) { //условие, если было передан шаг шифрования больший,
+                while (step>66) { //условие, если было передан шаг шифрования больший,
                     // чем размер алфавита
-                    step = step - 33;
+                    step = step - 66;
                 }
-                while (step<-33) { //условие, если было передан шаг шифрования меньший,
+                while (step<-66) { //условие, если было передан шаг шифрования меньший,
                     // чем размер алфавита
-                    step = step + 33;
+                    step = step + 66;
                 }
                 number = alphabet_RU.indexOf(symbol_mssg); //определяем номер символа в нашем
                 //алфавите
@@ -71,19 +71,22 @@ public class Main {
                 symbol_found = alphabet_RU.charAt(index);
             }
             if (lang.equals("EN")) {
-                while (step>26) { //условие, если было передан шаг шифрования больший,
+                while (step>52) { //условие, если было передан шаг шифрования больший,
                     // чем размер алфавита
-                    step = step - 26;
+                    step = step - 52;
                 }
-                while (step<-26) { //условие, если было передан шаг шифрования меньший,
+                while (step<-52) { //условие, если было передан шаг шифрования меньший,
                     // чем размер алфавита
-                    step = step + 26;
+                    step = step + 52;
                 }
                 number = alphabet_EN.indexOf(symbol_mssg);
                 index = number + step*2; //к номеру прибавляем шаг*2 т.к. в алфавите есть и строчные
                 //и заглавные буквы
                 if (step<0 && index<0) {
                     index = 52 + index;
+                }
+                if (step>0 && index>52) {
+                    index = index - 52;
                 }
                 symbol_found = alphabet_EN.charAt(index);
             }
